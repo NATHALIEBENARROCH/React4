@@ -7,7 +7,6 @@ import "./ExpenseItem.css";
 const ExpenseItem = (props) => {
   // function clickHandler() {}
   const [title, setTitle] = useState(props.title);
-  console.log("ExpenseItem evaluated by React");
 
   const clickHandler = () => {
     setTitle("Updated!");
@@ -19,12 +18,12 @@ const ExpenseItem = (props) => {
       <ExpenseDate date={props.date} />
       <div className="expense-item__description">
         {/* the useState value below does not just call a new function but also is updated again because of the STATE UPDATING FUNCTION ABOVE CALLED setTitle*/}
-        <h2>{title}</h2>
+        <h2>{props.title}</h2>
         {/* //this below cannot be updated as does not useState */}
         {/* <h2>{props.title}</h2> */}
         <div className="expense-item__price">${props.amount}</div>
       </div>
-      <button onClick={clickHandler}>Change Title</button>
+      <button onClick={clickHandler}>{title}</button>
     </Card>
   );
 };
