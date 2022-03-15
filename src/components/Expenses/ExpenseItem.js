@@ -14,17 +14,19 @@ const ExpenseItem = (props) => {
   };
 
   return (
-    <Card className="expense-item">
-      <ExpenseDate date={props.date} />
-      <div className="expense-item__description">
-        {/* the useState value below does not just call a new function but also is updated again because of the STATE UPDATING FUNCTION ABOVE CALLED setTitle*/}
-        <h2>{props.title}</h2>
-        {/* //this below cannot be updated as does not useState */}
-        {/* <h2>{props.title}</h2> */}
-        <div className="expense-item__price">${props.amount}</div>
-      </div>
-      <button onClick={clickHandler}>{title}</button>
-    </Card>
+    <li>
+      <Card className="expense-item">
+        <ExpenseDate date={props.date} />
+        <div className="expense-item__description">
+          {/* the useState value below does not just call a new function but also is updated again because of the STATE UPDATING FUNCTION ABOVE CALLED setTitle*/}
+          <h2>{props.title}</h2>
+          {/* //this below cannot be updated as does not useState */}
+          {/* <h2>{props.title}</h2> */}
+          <div className="expense-item__price">${props.amount}</div>
+        </div>
+        <button onClick={clickHandler}>{title}</button>
+      </Card>
+    </li>
   );
 };
 

@@ -1,25 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 
 import ExpenseForm from "./ExpenseForm";
 import "./NewExpense.css";
 
 const NewExpense = (props) => {
+  const [isEditing, setIsEditing] = useState(false);
   //this function saveExpenseDataHandler  expects a parameter (enteredExpenseData)
   const saveExpenseDataHandler = (enteredExpenseData) => {
     //and returns an object our expenseData that was generated in the submitHandler in child component
-    const expenseDataTwo = {
+    const expenseData = {
       //with spread operator I pull out all key value pairs and add the key id
       ...enteredExpenseData,
       id: Math.random().toString(),
     };
-    console.log(expenseDataTwo);
+    console.log(expenseData);
 
-    props.onAddExpense(expenseDataTwo);
+    props.onAddExpense(expenseData);
+    setIsEditing(false);
   };
+
+  const startEditingHandler = () => {
+    console.log("start editing");
+    setIsEditing(true);
+  };
+
+  const stopEditingHandler = () => {
+    console.log("stop editing");
+    setIsEditing(false);
+  };
+
   return (
     <div className="new-expense">
-      {/* //we pass a function to this component.A function to be triggered when something happens in that component below. In this case when user saves data in component below. This function is pointed to but does NOT RUNE HERE. No () at the end*/}
-      <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
+      {!isEditing && (
+        <button onClick={startEditingHandler}>Add New Expense</button>
+      )}
+
+      {isEditing && (
+        <ExpenseForm
+          onSaveExpenseData={saveExpenseDataHandler}
+          onCancel={stopEditingHandler}
+        />
+      )}
     </div>
   );
 };

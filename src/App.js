@@ -28,11 +28,11 @@ const DUMMY_EXPENSES = [
 const App = () => {
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
 
-  const addExpenseHandler = (expenseThree) => {
+  const addExpenseHandler = (expense) => {
     //return our new array with expense added as a parameter plus previous expenses
     //to update array based on previous state
     setExpenses((prevExpenses) => {
-      return [expenseThree, ...prevExpenses];
+      return [expense, ...prevExpenses];
     });
   };
 
