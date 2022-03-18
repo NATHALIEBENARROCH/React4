@@ -32,6 +32,7 @@ const App = () => {
     //return our new array with expense added as a parameter plus previous expenses
     //to update array based on previous state
     setExpenses((prevExpenses) => {
+      console.log("look here:", prevExpenses, expense);
       return [expense, ...prevExpenses];
     });
   };
