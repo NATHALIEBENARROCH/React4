@@ -10,7 +10,7 @@ const ExpensesFilter = (props) => {
 
     console.log("event:", event.target.value);
     //passes this data up to expenses
-    props.onChangeFilter();
+    props.onChangeFilter(event.target.value);
   };
 
   return (
