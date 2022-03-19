@@ -6,7 +6,9 @@ const Chart = (props) => {
   // we are mapping over our dataPoints to transform them each into a VALUE
   // this returns just an array of all the values
   const dataPointValues = props.dataPoints.map((dataPoint) => dataPoint.value);
+
   console.log("here they are:", dataPointValues);
+
   const totalMaximum = Math.max(...dataPointValues);
   //spread operator pulls out all elements of array as math.max wants to compare array of objects so that they are comparable stand alone objects!
   return (

@@ -10,11 +10,14 @@ const ChartBar = (props) => {
   }
   return (
     <div className="chart-bar">
-      <div className="chart-bar_inner">
+      <div className="chart-bar__inner">
         {/* STYLE IS DYNAMIC WITH AN OBJECT */}
-        <div style={{ height: barFillHeight }} className="chart-bar_fill"></div>
+        <div
+          style={{ height: barFillHeight }}
+          className="chart-bar__fill"
+        ></div>
       </div>
-      <div className="chart-bar_label">{props.label}</div>
+      <div className="chart-bar__label">{props.label}</div>
     </div>
   );
 };
